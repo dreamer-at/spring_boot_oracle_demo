@@ -1,0 +1,41 @@
+#server:
+#  servlet:
+#    context-path: /api
+
+server:
+  port: 8091
+  servlet:
+    context-path: /api
+
+logging:
+  file:
+    path: D:\logs
+
+spring:
+  profiles:
+    active: ${SPRING_PROFILE:prod}
+  main:
+    banner-mode: off
+  jmx:
+    enabled: false
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
+        default-page-size: 25
+        max-page-size: 100
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: ${DB_USER:TEST}
+    password: ${DB_PASSWORD:TEST}
+    url: jdbc:oracle:thin:@//${DB_HOST:192.168.0.1}:${DB_PORT:1521}/TEST_DB
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        proc.param_null_passing: true
+        format_sql: true

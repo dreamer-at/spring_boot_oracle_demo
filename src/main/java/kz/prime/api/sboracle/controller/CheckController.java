@@ -47,13 +47,7 @@ public class CheckController {
 
     @PostMapping(path = "/full/")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseDTO fullCheckForRegUsers(@RequestBody RequestCheckDTO requestCheckDTO) throws RuntimeException {
-        return completeProcService.completeAllProcedures(requestCheckDTO);
-    }
-
-    @PostMapping(path = "/not-pep/")
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseDTO checkWithoutIPDLList(@RequestBody RequestCheckDTO requestCheckDTO) throws RuntimeException {
+    public ResponseDTO fullCheck(@RequestBody RequestCheckDTO requestCheckDTO) throws RuntimeException {
         return completeProcService.completeAllProcedures(requestCheckDTO);
     }
 }
